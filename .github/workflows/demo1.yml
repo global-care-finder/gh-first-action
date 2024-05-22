@@ -12,14 +12,10 @@ jobs:
         run: echo "${{ toJSON(github.event) }}"
       - name: Get Code
         uses: actions/checkout@v3
-      - name: Install eslint@8.x
-        run: npm install eslint@8.x
       - name: Install dependencies
         run: npm ci 
-      - name: Install eslint init
-        run: npx eslint --init
-      # - name: Test Code 
-      #   run: npm run test
+      - name: Test Code 
+        run: npm run test
       - name: Build code 
         run: npm run build 
       - name: Deploy project
