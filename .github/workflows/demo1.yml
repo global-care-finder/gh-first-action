@@ -16,6 +16,8 @@ jobs:
         run: npm install eslint@8.x
       - name: Install dependencies
         run: npm ci 
+      - name: Install eslint init
+        run: npx eslint --init
       # - name: Test Code 
       #   run: npm run test
       - name: Build code 
