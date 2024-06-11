@@ -1,9 +1,19 @@
+name: Multiple events
 on: 
-  schedule:
-    - cron: '*/15 * * * *'
-jobs: 
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+jobs:
   hello_world:
     runs-on: ubuntu-latest
-    steps: 
-      - name: Echo current time
-        run: echo "The current server time is $(date)"
+    steps:
+      - name: "Echo basic information
+        run: | 
+          echo "REF: $GITHUB_REF"
+          echo "Job ID: $GITHUB_JOB"
+          echo "Action: $GITHUB_ACTION"
+          echo "Actor: $GITHUB_ACTOR"
