@@ -12,6 +12,7 @@ jobs:
       - run: npm install -g bats
       - run: bats -v
   hello-action:
+    needs: check-bats-version
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello GitHub actions"
