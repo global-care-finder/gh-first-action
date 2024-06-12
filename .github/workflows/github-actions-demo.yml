@@ -1,11 +1,8 @@
-name: A workflow for my Hello world file
+name: CI
 on: push
-jobs: 
-  build: 
-    name: Hello world action
+jobs:
+  prod-check:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    steps: 
-    - uses: actions/checkout@v1
-    - uses: ./action-a
-      with:
-        MY_NAME: "Ferat"  
+    steps:
+      - run: echo "Hello"
