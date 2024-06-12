@@ -7,5 +7,5 @@ jobs:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4 
       - name: Run build script
-        run: sh ./.github/scripts/build.sh
+        run: sh ./scripts/build.sh
         shell: bash 
