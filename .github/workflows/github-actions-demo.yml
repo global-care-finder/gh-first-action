@@ -4,5 +4,7 @@ jobs:
   prod-check:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    env:
+      First_Name: Ferat
     steps:
-      - run: echo "Deploying to production server on branch $GITHUB_REF"
+      - run: echo "My name is $First_Name"
