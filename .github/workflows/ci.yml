@@ -1,13 +1,21 @@
-name: CI
+name: Share data between jobs
 on: push
 jobs:
-  prod-check:
-    runs-on: ubuntu-latest
+  job_1:
+    name: Upload File
+    runs-on: ubuntu-file
     steps: 
-      - name: Check out the repository to the runner
-        uses: actions/checkout@v4 
-      - name: chomd
-        run: chmod a+x ./build.sh
-      - name: Run build script
-        run: sh ./build.sh
-        shell: bash 
+      - run: echo "Hello World" > file.txt
+      - uses: actions/upload-artifact@v2
+        with:
+          name: file
+          path: file.txt
+  job_2:
+    name: Download File
+    runs-on: ubuntu-latest
+    needs: job_1 
+    steps:
+      - uses: actions/download-artifact@v2
+        with: 
+          name: file
+      - run: cat file.txt
