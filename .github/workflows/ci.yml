@@ -6,6 +6,8 @@ jobs:
     steps: 
       - name: Check out the repository to the runner
         uses: actions/checkout@v4 
+      - name: chomd
+        run: chmod a+x ./build.sh
       - name: Run build script
         run: sh ./build.sh
         shell: bash 
