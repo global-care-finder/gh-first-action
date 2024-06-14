@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: actions/gh-first-action@v2
+        uses: actions/gh-first-action@0.0.1
         with:
           who-to-greet: 'Ferat GH'
       # Use the output from the `hello` step
