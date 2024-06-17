@@ -1,28 +1,15 @@
-name: Multiple jobs
+name: Directory
 on: 
   push:
-    branches: [main]
-jobs:
-  runner-1:
+    branches: main
+jobs: 
+  directory:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./scripts
     steps:
-      - name: first name
-        run: echo "Ferat"
-      - name: last name
-        run: echo "Imrak"
-  runner-2:
-    runs-on: ubuntu-latest
-    needs: runner-1
-    steps:
-      - name: age
-        run: echo "33"
-      - name: title
-        run: echo "devops" 
-  runner-3:
-    needs: runner-2
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Wife name
-        run: echo "Morgan"
-      - name: Wife last name
-        run: echo "McCormick"
+      - name: check repo
+        uses: actions/checkout@v4
+      - name: run script
+        run: ./myscript.sh
