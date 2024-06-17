@@ -18,6 +18,7 @@ jobs:
       - name: title
         run: echo "devops" 
   runner-3:
+    needs: runner-1
     runs-on: ubuntu-latest
     steps: 
       - name: Wife name
