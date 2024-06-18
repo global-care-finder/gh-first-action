@@ -16,6 +16,7 @@ jobs:
       - name: run script
         run: ./myscript.sh
   prod-check:
+    needs: directory
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     steps:
