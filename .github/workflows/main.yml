@@ -15,3 +15,8 @@ jobs:
         run: chmod +x myscript.sh
       - name: run script
         run: ./myscript.sh
+  prod-check:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploying to production server on branch $GITHUB_REF"    
