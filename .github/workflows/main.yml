@@ -11,11 +11,12 @@ jobs:
           node-version: '20'
       - run: npm install -g bats
       - run: bats -v
-  first-last-name:
+  build:
     runs-on: ubuntu-latest
-    env: 
-      First-Name: Ferat
-      Last-Name: Imrak
+    strategy:
+      matrix:
+        node: [144, 16]
     steps:
-      - name: Print first and last name
-        run: echo 'My first name is ${{env.First-Name}} and my last name is ${{env.Last-Name}}'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{matrix.node}}
