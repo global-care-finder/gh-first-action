@@ -8,6 +8,8 @@ env:
 jobs:
   windows_job:
     runs-on: windows-latest
+    env:
+      mascot: New
     steps: 
       - run: echo 'Hi ${{env.mascot}}' #Hi Mona
         env:
