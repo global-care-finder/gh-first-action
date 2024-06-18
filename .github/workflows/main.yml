@@ -18,4 +18,4 @@ jobs:
       Last-Name: Imrak
     steps:
       - name: Print first and last name
-        run: echo 'My first name is $First-Name and my last name is $Last-Name'
+        run: echo 'My first name is ${{env.First-Name}} and my last name is ${{env.Last-Name}}'
