@@ -1,16 +1,18 @@
 on:
   workflow_call:
     inputs:
-      username:
-        description: 'A username passed from the caller workflow'
-        default: 'john-doe'
-        required: false
+      name:
+        description: 'Name of greeting'
+        required: true
         type: string
+    outputs:
+        greetingMessage:
+            description: 'Generated greeting message'
+            value: ${{ github.job.steps.greeting.output.message }}
   
 jobs:
-  print-username:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Print the input name to STDOUT
-      run: echo The username is ${{ inputs.username }}
+    greet:
+        runs-on: ubuntu-latest
+        steps:
+        - id: greeting
+          run: echo "::set-output name=message::Hello, ${{ inputs.name }}"

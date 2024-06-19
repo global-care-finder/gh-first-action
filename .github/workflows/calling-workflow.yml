@@ -1,0 +1,7 @@
+name: Calling Workflow
+on: push
+jobs: 
+    useCallable:
+        uses: ./.github/workflows/workflow-call.yml
+        with:
+          name: 'Jimin'
