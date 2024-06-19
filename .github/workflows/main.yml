@@ -3,7 +3,7 @@ on:
     workflows: ["Build"]
     types: [requested]
     branches: 
-      - 'main'
+      - 'releases/**'
 jobs:
   Test:
     runs-on: ubuntu-latest
